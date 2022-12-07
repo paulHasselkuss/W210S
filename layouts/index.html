@@ -1,0 +1,37 @@
+{{ define "frontmatter" }}
+
+<div class="home-head {{ with .Params.images }}home-head--has-image{{ end }} grid--main">
+
+  {{ partial "page/page-image.html" . }}
+  <div class="home-head__text">
+    {{ partial "page/page-header.html" . }}
+    <div class="page-frontmatter grid--main bigtext">
+      {{ partial "page/page-description.html" . }}
+      <ul class="page-list vertical">
+        {{ partial "util/menu-item.html" (dict "menu" "home" "page" . "class" "button") }}
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+{{ end }}
+
+{{ define "content" }}
+
+{{ partial "page/page-content.html" . }}
+{{ range (partial "home.html" . )}}
+<section class="home-section grid--main">
+  <details id="{{ anchorize .Title }}" {{ with .Params.open }}open="true"{{ end }}>
+    <summary class="home-section__title">
+      {{ .Title }}
+    </summary>
+    <div class="details__inner home-section__inner" {{ with .Params.columns }}style="column-count: {{ . }}"{{ end }}>
+      {{ .Content }}
+    </div>
+  </details>
+</section>
+{{ end }}
+
+{{ end }}
+

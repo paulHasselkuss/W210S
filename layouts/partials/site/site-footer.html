@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div class="site-footer__item">
+    <div>{{ replace .Site.Copyright "{currentYear}" now.Year | markdownify}}</div>
+  <ul class="site-footer__nav vertical">
+    {{- partial "util/menu-item.html" (dict "menu" "footer" "page" . ) -}}
+  </ul>
+  </div>
+  <!--<div class="site-footer__item">
+    <span id="themeToggle" class="theme-toggle"></span>
+  </div>-->
+  </div>
+  <div class="site-footer__item site-footer__up"><a href="#" class="unstyled">&#8710</a></div>
+</footer>

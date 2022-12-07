@@ -1,0 +1,12 @@
+{{ $return := .Scratch.Get "home" }}
+
+{{ if not $return }}
+
+{{ $headless := .Site.GetPage "/home" }}
+{{ $return := $headless.Resources.ByType "page" }}
+{{ $return := sort $return ".Params.weight" }}
+{{ .Scratch.Set "home" $return }}
+
+{{ end }}
+
+{{ return .Scratch.Get "home" }}

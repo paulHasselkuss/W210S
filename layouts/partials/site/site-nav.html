@@ -1,0 +1,19 @@
+{{ if .IsHome }}
+
+<button id="navToggle" class="site-nav--btn hamburger" type="button" aria-label="Toggle navigation">
+  <div class="hamburger__inner">
+    <span></span>
+    <span></span>
+  </div>
+</button>
+
+<nav id="siteNav" class="site-nav">
+  <ul>
+    {{ range (partial "home.html" .) }}
+      {{ $anchor := anchorize .Title }}
+      <li><a class="unstyled" onclick="document.getElementById('{{ $anchor }}').open = true;" href="#{{ $anchor }}">{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+</nav>
+
+{{ end }}

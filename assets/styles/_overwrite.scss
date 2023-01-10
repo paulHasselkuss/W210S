@@ -43,10 +43,10 @@
 
 .home-section {
 	border-top: var(--border);
+}
 
-	details {
-		margin: spacing(1) 0;
-	}
+.home-section > details {
+	margin: spacing(1) 0;
 }
 
 .kind-home .site-content {

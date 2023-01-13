@@ -70,11 +70,16 @@
 	.page-image {
 		grid-column: initial;
 		margin-bottom: 0;
+		order: 1;
 	}
 
-	 @include md("medium") {
-		grid-template-columns: 1fr 2fr;	
-	 }
+	@include md("medium") {
+		grid-template-columns: 1fr 2fr;
+		
+		.page-image {
+		  order: 0;
+		}
+	}
 }
 
 .page-header__title {

@@ -86,4 +86,13 @@
 	margin-bottom: 0;
 }
 
+.has-columns {
+	@include md("medium") {
+		column-count: var(--column-count, 2);
+	}
+	li {
+    break-inside: avoid;
+	}
+}
+
 @import "overwrite2";
